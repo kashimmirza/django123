@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 from pathlib import Path
+from django.conf import settings
 import os
 from django.contrib.messages import constants as messages
 from django.core import mail
@@ -28,7 +29,7 @@ SECRET_KEY = '4--(d0^o%3vqt#-c(hf+8)a$95z8gbo57xol5pft!%xpve9_zd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -123,13 +124,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[os.path.join(BASE_DIR,"static"),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
 
 
 MESSAGE_TAGS = {
-    messages.ERROR:"danger"
+    messages.ERROR: "danger"
 }
-#SMTP Configuration
+# SMTP Configuration
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -138,7 +139,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'static/img')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
 MEDIA_URL = '/img/'
-
-
